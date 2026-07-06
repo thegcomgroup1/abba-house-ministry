@@ -9,8 +9,9 @@ export function LifeOfChurch() {
             Life here
           </p>
           <h2 className="font-display text-3xl font-semibold md:text-4xl lg:text-5xl">
-            Real people. Real Sundays. Real life together.
+            Real people. Real gatherings. Real life together.
           </h2>
+
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
             A look at what an ordinary week at {siteConfig.church.name} actually feels like.
           </p>
