@@ -13,8 +13,9 @@ export function TimesLocation() {
               When &amp; where to find us
             </h2>
             <p className="mt-3 max-w-md text-base text-muted-foreground md:text-lg">
-              Everything you need to walk in on Sunday — no guessing.
+              Everything you need to walk in with confidence — no guessing.
             </p>
+
 
             <div className="mt-8 space-y-6">
               <div className="flex items-start gap-4">

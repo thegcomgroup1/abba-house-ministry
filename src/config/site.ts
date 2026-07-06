@@ -1,161 +1,208 @@
 /**
- * HLPR Master Ministry Base — site configuration (the swap layer).
+ * ============================================================================
+ * ABBA HOUSE MINISTRY — site config (church template)
+ * Altadena, CA · Hybrid (in-person + virtual) · Pastor Walter & Tanya Kirk
+ * ============================================================================
+ * RESCUE BUILD for Walter Kirk (said "CALL ME" — hottest inbound). His current
+ * site is a generic Wix template (title literally "Home | My Site") holding
+ * real, beautiful content. The content is sacred; the container is generic.
  *
- * To re-skin for a new church, change values in this file plus the brand
- * tokens in src/styles.css. The structure of the page never changes.
+ * ⚠️ HANDLE WITH REVERENCE — their story is real testimony, not marketing:
+ *   Abba House formed 2023 by the Holy Spirit's inspiration. The Jan 2024
+ *   Eaton Fire DESTROYED Pastor Kirk's 60-year-old family home — the original
+ *   foundation and birthplace of the ministry. Through loss and displacement,
+ *   the Kirks kept going: "Abba House continues the good fight of faith in
+ *   Altadena." Post-fire, WITHOUT their original building, the website is
+ *   genuinely their gathering anchor. On the call, HONOR this — never lead
+ *   with "your site's outdated." Lead with what they've overcome.
  *
- * All copy below is written warm/plain/human, addressed to a nervous
- * first-time visitor. Square-bracket tokens are obvious swap targets.
+ * VERIFIED (from abbahouseministry.com — safe to use):
+ *   - pastors, address, phone, anchor verse, service rhythm, giving, socials
+ *   - their real welcome language + founding/fire story (verbatim below)
+ *
+ * DRAFT (hlpr's copy over generic template — confirm on call):
+ *   - tagline, mission framing, "what to expect"
+ *
+ * HYBRID NOTE: they gather in person (Sat Encounters) AND virtually (Thu Zoom).
+ * Church engine fits. But surface both rhythms clearly — the virtual piece is
+ * central for them post-fire.
+ *
+ * IMAGERY: 3 real photos pulled from abbahouseministry.com are wired below —
+ * hero (Altadena mountains), story (the Kirks), life1 (Saturday Encounter
+ * flyer). life2–life6 fall back to generic warm placeholders until Walter
+ * shares more real photos. Ask on the call for: Saturday Encounter photos,
+ * outreach photos, congregation photos.
+ * ============================================================================
  */
 
-import heroImage from "@/assets/placeholders/hero.jpg";
-import storyImage from "@/assets/placeholders/story.jpg";
-import life1 from "@/assets/placeholders/life-1.jpg";
-import life2 from "@/assets/placeholders/life-2.jpg";
-import life3 from "@/assets/placeholders/life-3.jpg";
-import life4 from "@/assets/placeholders/life-4.jpg";
-import life5 from "@/assets/placeholders/life-5.jpg";
-import life6 from "@/assets/placeholders/life-6.jpg";
+import heroAsset from "@/assets/abbahouse/hero.jpg.asset.json";
+import storyAsset from "@/assets/abbahouse/story.jpg.asset.json";
+import life1Asset from "@/assets/abbahouse/life1.jpg.asset.json";
+// TODO: replace with real Abba House photos when Walter shares them
+import life2Fallback from "@/assets/placeholders/life-2.jpg";
+import life3Fallback from "@/assets/placeholders/life-3.jpg";
+import life4Fallback from "@/assets/placeholders/life-4.jpg";
+import life5Fallback from "@/assets/placeholders/life-5.jpg";
+import life6Fallback from "@/assets/placeholders/life-6.jpg";
+
+const hero = { url: heroAsset.url };
+const story = { url: storyAsset.url };
+const life1 = { url: life1Asset.url };
+const life2 = { url: life2Fallback };
+const life3 = { url: life3Fallback };
+const life4 = { url: life4Fallback };
+const life5 = { url: life5Fallback };
+const life6 = { url: life6Fallback };
 
 export const siteConfig = {
+  announcement: {
+    enabled: true,
+    text: "New here? Join us for a Saturday Encounter or online Thursday \u2014 you're welcome.",
+    ctaLabel: "Plan your visit",
+    ctaUrl: "/plan-a-visit",
+  },
+
   church: {
-    name: "[CHURCH NAME]",
-    shortName: "[CHURCH]",
-    city: "[CITY, ST]",
-    tagline: "A welcoming home for people just like you.",
+    name: "Abba House Ministry",
+    shortName: "Abba House",
+    city: "Altadena, CA",
+    // DRAFT tagline drawn from their heart; confirm with Pastor Kirk:
+    tagline: "Drawing all people to the Father.",
+    // Built from their REAL welcome + anchor verse (John 12:32):
     mission:
-      "We're a church for anyone who's ever wondered if there's a place for them. There is — and it's right here.",
+      "A Spirit-led family in Altadena where every person is welcomed to share a relationship with the Father \u2014 nurturing new souls and strengthening the body of Christ.",
     story: [
-      "[CHURCH NAME] started in [YEAR] with a handful of families and one quiet conviction: that anyone who walked through the doors should feel like they already belonged.",
-      "All these years later, that's still the heart of who we are. We're ordinary people — parents, grandparents, kids, college students, retirees — learning what it looks like to follow Jesus together in [CITY].",
+      // Their REAL story, kept close to verbatim (verified, handle with care):
+      "Abba House Ministry was formed in 2023 through the inspiration of the Holy Spirit \u2014 to nurture new souls and strengthen the body of Christ. Pastors Walter and Tanya Kirk have served across Southern California for over 25 years, in youth, men's and women's ministry, praise and worship, evangelism, intercessory prayer, and outreach.",
+      "In January 2024, the Eaton Fire tragically destroyed Pastor Kirk's 60-year-old family home \u2014 the original foundation and birthplace of Abba House. Through loss and displacement, the Kirks' faith led them to continue the Lord's work. Abba House Ministry continues the good fight of faith in Altadena \u2014 and there's a place for you in it.",
     ],
-    foundedLine: "Serving [CITY] since [YEAR]",
+    foundedLine: "Continuing the good fight of faith in Altadena", // their real line
   },
 
   brand: {
-    logoText: "[CHURCH]",
-    /**
-     * Hero media. Free mockups: leave type as "image" (videoSrc ignored).
-     * Live sites / paid builds: set type to "video" and point videoSrc at a
-     * compressed, muted, loopable .mp4/.webm. imageSrc is ALWAYS used as the
-     * poster, the mobile fallback, and the reduced-motion fallback.
-     */
+    logoText: "Abba House",
+    // No standalone logo file available on the current site (the "ABH.png"
+    // on their homepage is a Zelle donation QR code, not a mark). Header
+    // renders the wordmark text when this is empty.
+    logoImageSrc: "",
+    storyImageSrc: story.url,
     heroMedia: {
       type: "image" as "image" | "video",
-      imageSrc: heroImage,
+      imageSrc: hero.url,
       videoSrc: "",
     },
-    storyImageSrc: storyImage,
+    // Forward-looking data for the paid multi-page build; not wired yet.
+    pageHeroes: {
+      planAVisit: hero.url,
+      about: story.url,
+      leadership: life3.url,
+      give: life4.url,
+      contact: life2.url,
+      sermons: life3.url,
+    },
   },
 
   service: {
-    timesShort: "Sundays · 9:00 & 10:45 AM",
+    // VERIFIED rhythm from their site (hybrid) — confirm current on call:
+    timesShort: "Saturdays \u00b7 Encounter 11:00 AM PST",
     timesLong: [
-      { day: "Sunday", time: "9:00 AM" },
-      { day: "Sunday", time: "10:45 AM" },
+      { day: "Saturday", time: "Encounter \u2014 1st, 2nd & 3rd Saturdays, 11:00 AM PST" },
+      { day: "Saturday", time: "Faith in Action Outreach \u2014 4th Saturday" },
+      { day: "Thursday", time: "Kingdom Studies (virtual, Zoom) \u2014 6:30 PM PST" },
     ],
-    address: "[123 Street Name, City, ST 00000]",
+    address: "380 E Woodbury Rd, Altadena, CA 91001",
     mapEmbedUrl:
-      "https://www.openstreetmap.org/export/embed.html?bbox=-97.7437%2C30.2660%2C-97.7372%2C30.2706&layer=mapnik",
-    mapLinkUrl: "https://www.google.com/maps",
+      "https://www.google.com/maps?q=380+E+Woodbury+Rd,+Altadena,+CA+91001&output=embed",
+    mapLinkUrl:
+      "https://www.google.com/maps?q=380+E+Woodbury+Rd,+Altadena,+CA+91001",
     practical: [
-      { label: "Parking", value: "Free, right out front" },
-      { label: "Service length", value: "Around 70 minutes" },
-      { label: "What to wear", value: "Whatever you're comfortable in" },
+      { label: "In person", value: "Saturday Encounters, 11 AM PST \u2014 come as you are" },
+      { label: "Online", value: "Thursday Kingdom Studies on Zoom, 6:30 PM PST \u2014 join from anywhere" },
+      { label: "What to expect", value: "Spirit-filled worship, the Word, and a family that welcomes you" },
     ],
   },
 
+  // Built from their REAL identity (Spirit-led, welcoming, resilient):
   expect: [
     {
       icon: "Heart" as const,
-      title: "You'll be welcomed, not cornered",
-      body: "A friendly hello at the door — and that's it. Nobody will single you out, ask you to stand, or put you on the spot.",
+      title: "Welcomed to the Father",
+      body: "\u201cAnd I, when I am lifted up from the earth, will draw all people to myself.\u201d (John 12:32) You're welcome here, just as you are.",
     },
     {
-      icon: "Clock" as const,
-      title: "About 70 minutes, start to finish",
-      body: "Music, a practical message from the Bible, and a few minutes to breathe. You'll know what's happening the whole time.",
+      icon: "Users" as const,
+      title: "In person & online",
+      body: "Gather with us at Saturday Encounters in Altadena, or join Kingdom Studies on Zoom Thursday nights from anywhere. There's a way in for everyone.",
     },
     {
-      icon: "Shirt" as const,
-      title: "Come as you are",
-      body: "Jeans, dress, t-shirt, suit — all of it shows up on Sunday. Wear what feels like you.",
+      icon: "Heart" as const,
+      title: "Faith through the fire",
+      body: "Through loss and displacement after the Eaton Fire, this ministry has kept going. Abba House knows what it means to hold onto faith \u2014 and to keep welcoming others in.",
     },
     {
-      icon: "Baby" as const,
-      title: "Your kids are in great hands",
-      body: "Safe, fun, age-appropriate spaces for newborns through 5th grade. Check-in is simple and we'll walk you through it.",
+      icon: "Users" as const,
+      title: "Faith in action",
+      body: "Every 4th Saturday, we take the love of Christ into Altadena through outreach. Serving our community is part of who we are.",
     },
   ],
 
   life: [
-    { src: life1, alt: "Volunteers laughing while setting up the welcome table" },
-    { src: life2, alt: "Kids laughing during a craft in kids ministry" },
-    { src: life3, alt: "Worship inside the sanctuary" },
-    { src: life4, alt: "Two members hugging after service" },
-    { src: life5, alt: "A small group gathered in a living room" },
-    { src: life6, alt: "Volunteers serving meals in the community" },
+    { src: life1.url, alt: "Saturday Encounter Service — 1st, 2nd & 3rd Saturdays at 11 AM PST" },
+    { src: life2.url, alt: "Welcoming a first-time guest" },
+    { src: life3.url, alt: "Pastor Walter & Evangelist Tanya Kirk with the Abba House family" },
+    { src: life4.url, alt: "The Abba House family together" },
+    { src: life5.url, alt: "Faith in Action outreach in Altadena" },
+    { src: life6.url, alt: "Worship at Abba House" },
   ],
 
+  // Their REAL ministry rhythms as "ministries":
   ministries: [
-    { name: "Kids", line: "Sundays designed around your kids, not in spite of them." },
-    { name: "Students", line: "A place for middle and high schoolers to be known." },
-    { name: "Young Adults", line: "Real friendships for the in-between years." },
-    { name: "Small Groups", line: "Life is better in a circle of eight than a row of two hundred." },
-    { name: "Care & Counseling", line: "When life gets hard, you don't walk through it alone." },
-    { name: "Serve", line: "Find a spot to give back — in the church and across the city." },
+    { name: "Saturday Encounter", line: "In-person gathering for worship and the Word, 1st\u20133rd Saturdays." },
+    { name: "Kingdom Studies", line: "Virtual Bible study on Zoom every Thursday night \u2014 join from anywhere." },
+    { name: "Faith in Action", line: "Community outreach every 4th Saturday, carrying Christ's love into Altadena." },
+    { name: "Prayer & Support", line: "Reach out anytime \u2014 the Kirks and the Abba House family are here for you." },
   ],
 
   events: [
-    {
-      date: "This Sunday",
-      title: "Newcomer Welcome",
-      blurb: "First time here? Grab coffee with our team right after the service.",
-    },
-    {
-      date: "Sat, [Date]",
-      title: "Community Workday",
-      blurb: "We're partnering with a local school for a morning of cleanup and care.",
-    },
-    {
-      date: "[Date]",
-      title: "Family Night",
-      blurb: "Food trucks, games, and a short message for the whole family.",
-    },
+    { date: "Saturdays", title: "Saturday Encounter", blurb: "1st, 2nd & 3rd Saturdays at 11 AM PST \u2014 come worship with us in Altadena." },
+    { date: "Thursdays", title: "Kingdom Studies (Online)", blurb: "6:30 PM PST on Zoom \u2014 grow in the Word from wherever you are." },
   ],
 
   sermon: {
-    title: "[Latest Message Title]",
-    speaker: "[Speaker Name]",
-    series: "[Series Name]",
-    date: "[Recent Date]",
+    // TODO — wire to their IG/FB video if desired; warm placeholder otherwise:
+    title: "Latest Word",
+    speaker: "Pastor Walter Kirk, Jr.",
+    series: "Abba House Ministry",
+    date: "",
     summary:
-      "A short, practical look at what it means to follow Jesus in the middle of an ordinary week.",
-    embedUrl: "", // YouTube/FB/podcast embed
-    watchUrl: "#",
+      "Spirit-led teaching from Pastor Kirk. Join us in person on Saturday or online Thursday \u2014 or reach out and we'll help you connect.",
+    embedUrl: "",
+    watchUrl: "https://www.instagram.com/abbahouseministry",
   },
 
   give: {
-    line: "Every gift goes toward people — locally and around the world. Give online in about thirty seconds.",
-    onlineUrl: "#",
+    line: "Your generosity helps Abba House continue the good fight of faith in Altadena \u2014 nurturing souls and serving our community. Thank you.",
+    // [CONFIRM] — they use Zelle to (626) 421-0634; ask Walter how he wants giving presented
+    onlineUrl: "https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiQUJCQSBIT1VTRSBNSU5JU1RSWSIsImFjdGlvbiI6InBheW1lbnQiLCJ0b2tlbiI6IjYyNjQyMTA2MzQifQ==",
   },
 
   welcomeVideo: {
     enabled: false,
-    eyebrow: "Meet us first",
-    heading: "A quick hello before you visit.",
-    body: "We know visiting a new church can feel like a big step. So before you ever walk through the doors, here's a short hello from our team — who we are, and what Sunday looks like.",
-    posterSrc: storyImage,
+    eyebrow: "Meet the Kirks",
+    heading: "A word of welcome before you visit.",
+    body: "Pastors Walter and Tanya would love to say hello before you join us.",
+    posterSrc: story.url,
     embedUrl: "",
   },
 
   contact: {
-    phone: "[(000) 000-0000]",
-    email: "[hello@church.org]",
+    phone: "(626) 421-0634",
+    email: "", // [CONFIRM] — walterkirkjr1983@gmail.com from form; confirm public-facing address
+    notificationEmail: "walterkirkjr1983@gmail.com", // route form submissions to Walter; confirm
+    leadership: "Pastor Walter Kirk, Jr. & Evangelist Tanya Kirk",
     socials: [
-      { label: "Facebook", url: "#" },
-      { label: "Instagram", url: "#" },
-      { label: "YouTube", url: "#" },
+      { label: "Instagram", url: "https://www.instagram.com/abbahouseministry" },
+      { label: "Facebook", url: "https://www.facebook.com/share/17UYtnwtnN/" },
     ],
   },
 } as const;

@@ -1,8 +1,8 @@
-import { Heart, Clock, Shirt, Baby, type LucideIcon } from "lucide-react";
+import { Heart, Clock, Shirt, Baby, Users, type LucideIcon } from "lucide-react";
 import { PlanYourVisitButton } from "@/components/PlanYourVisitButton";
 import { siteConfig } from "@/config/site";
 
-const icons: Record<string, LucideIcon> = { Heart, Clock, Shirt, Baby };
+const icons: Record<string, LucideIcon> = { Heart, Clock, Shirt, Baby, Users };
 
 export function WhatToExpect() {
   return (
@@ -13,13 +13,14 @@ export function WhatToExpect() {
             New here?
           </p>
           <h2 className="font-display text-3xl font-semibold md:text-4xl lg:text-5xl">
-            Here's exactly what to expect on a Sunday.
+            Here's what to expect when you visit.
           </h2>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Walking into a church for the first time can feel like a lot. Here's the honest
-            version of what your morning looks like.
+            Walking into a new church can feel like a lot. Here's the honest version of what
+            gathering with us looks like.
           </p>
         </div>
+
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {siteConfig.expect.map((item) => {

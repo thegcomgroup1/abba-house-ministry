@@ -16,23 +16,24 @@ import { Footer } from "@/components/sections/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "[Church Name] — A welcoming home in [City]" },
+      { title: "Abba House Ministry — Altadena, CA" },
       {
         name: "description",
         content:
-          "Visiting for the first time? Here's everything you need — service times, what to expect, and how to plan your visit.",
+          "A Spirit-led family in Altadena, CA. Join us for Saturday Encounters at 11 AM PST or Kingdom Studies online Thursday nights. You're welcome here.",
       },
-      { property: "og:title", content: "[Church Name] — A welcoming home in [City]" },
+      { property: "og:title", content: "Abba House Ministry — Altadena, CA" },
       {
         property: "og:description",
         content:
-          "Visiting for the first time? Here's everything you need — service times, what to expect, and how to plan your visit.",
+          "Drawing all people to the Father. In person on Saturdays and online Thursdays — you're welcome, just as you are.",
       },
       { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
 });
+
 
 function Index() {
   return (
