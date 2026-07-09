@@ -45,7 +45,8 @@ export function Hero() {
         </video>
       )}
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/55 to-black/75" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-black/10 md:from-black/75 md:via-black/45 md:to-transparent" />
 
       <div className="mx-auto flex min-h-[640px] max-w-6xl flex-col items-start justify-center px-4 py-24 sm:px-6 md:min-h-[720px] md:py-32">
         <p className="mb-4 text-sm font-medium uppercase tracking-widest text-white/80">
