@@ -35,7 +35,7 @@
  * ============================================================================
  */
 
-import heroAsset from "@/assets/abbahouse/hero.jpg.asset.json";
+import heroAsset from "@/assets/abbahouse/hero.png.asset.json";
 import storyAsset from "@/assets/abbahouse/story.jpg.asset.json";
 import life1Asset from "@/assets/abbahouse/life1.jpg.asset.json";
 // TODO: replace with real Abba House photos when Walter shares them
